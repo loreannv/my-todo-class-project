@@ -5,6 +5,29 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React + TS</title>
+    <!-- Google Analytics -->
+    <script type="module">
+      const GA_ID = import.meta.env.VITE_GA_MEASUREMENT_ID;
+
+      if (GA_ID) {
+        // Cargar el script principal de GA4
+        const gtagScript = document.createElement("script");
+        gtagScript.async = true;
+        gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+        document.head.appendChild(gtagScript);
+
+        // Inicializar gtag
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ window.dataLayer.push(arguments); }
+        window.gtag = gtag;
+
+        gtag("js", new Date());
+        gtag("config", GA_ID);
+
+      } else {
+        console.warn("VITE_GA_MEASUREMENT_ID no está definido. Google Analytics no se inicializó.");
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

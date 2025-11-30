@@ -2,12 +2,18 @@ import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import * as Sentry from "@sentry/react";
 
-Sentry.init({
-  dsn: "https://5ee4e6a1fdcce1466d8eb4dfa17295c8@o4510450093981696.ingest.us.sentry.io/4510450097717248",
-  // Setting this option to true will send default PII data to Sentry.
-  // For example, automatic IP address collection on events
-  sendDefaultPii: true
-});
+const sentryDsn = import.meta.env.VITE_SENTRY_DSN;
+
+if (sentryDsn) {
+  Sentry.init({
+    dsn: sentryDsn,
+    // Setting this option to true will send default PII data to Sentry.
+    // For example, automatic IP address collection on events
+    sendDefaultPii: true
+  });
+} else {
+  console.warn("VITE_SENTRY_DSN no está definido. Sentry no se inicializó.");
+}
 
 createRoot(document.getElementById('root')!).render(
   <App />
