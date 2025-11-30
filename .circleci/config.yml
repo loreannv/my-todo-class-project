@@ -39,4 +39,5 @@ workflows:
             - test
           filters:
             branches:
-              only: production
+              only: main
+
