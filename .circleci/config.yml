@@ -22,7 +22,7 @@ jobs:
           pkg-manager: npm
       - run:
           name: Build project
-          command: vite build
+          command: npm run build
       - run:
           name: Deploy to Firebase Hosting
           command: |
