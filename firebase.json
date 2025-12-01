@@ -3,8 +3,10 @@
     "public": "dist",
     "ignore": [
       "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
+      "**/.gitignore",
+      "**/node_modules/**",
+      "**/.firebaserc/**",
+      "**/.env.example"
     ],
     "rewrites": [
       {
