@@ -7,8 +7,8 @@ const sentryDsn = import.meta.env.VITE_SENTRY_DSN;
 if (sentryDsn) {
   Sentry.init({
     dsn: sentryDsn,
-    // Setting this option to true will send default PII data to Sentry.
-    // For example, automatic IP address collection on events
+    // setting this option to true will send default PII data to Sentry.
+    // for example, automatic IP address collection on events
     sendDefaultPii: true
   });
 } else {
