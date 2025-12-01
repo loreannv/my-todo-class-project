@@ -20,12 +20,9 @@ jobs:
       - checkout
       - node/install-packages:
           pkg-manager: npm
-      - ⁠run:
+      - run:
           name: Build project
-          command: |
-            export VITE_API_BASE_URL="${VITE_API_BASE_URL}"
-            export VITE_PROJECT_ID="${VITE_PROJECT_ID}"
-            npm run build
+          command: vite build
       - run:
           name: Deploy to Firebase Hosting
           command: |
